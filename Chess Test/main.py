@@ -3,7 +3,15 @@ import chess.svg
 
 board = chess.Board()
 
-print(chess.svg.board(board))
+usesvg = True
+
+def loadtoWeb(svg_data):
+    file = open("display.html", "w")
+    file.write(svg_data)
+    file.close()
+
+loadtoWeb(chess.svg.board(board))
+print(board)
 
 playernum = 1
 
@@ -11,8 +19,9 @@ while True:
     move = input("Input move: ")
     if move == "takeback":
         board.pop()
-        print("Took back move")
-        print(chess.svg.board(board))#print(board)
+        print("Took back move0")
+        loadtoWeb(chess.svg.board(board))
+        print(board)
         playernum = 1 if playernum==0 else 0
         continue
     if move == "resign":
@@ -23,7 +32,8 @@ while True:
         continue
     board.push_uci(move)
     print(f"Played {move}")
-    print(chess.svg.board(board))#print(board)
+    loadtoWeb(chess.svg.board(board))
+    print(board)
     playernum = 1 if playernum==0 else 0
     if board.is_checkmate():
         print("Checkmate!","White" if playernum==0 else "Black", "won!")
