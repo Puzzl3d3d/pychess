@@ -10,33 +10,34 @@ class Board():
         return boxes[x][y]
     def resetBoard():
         # initialize white pieces
-        boxes[0][0] = Spot(0, 0, Rook(true))
-        boxes[0][1] = Spot(0, 1, Knight(true))
-        boxes[0][2] = Spot(0, 2, Bishop(true))
-        boxes[0][3] = Spot(0, 3, Queen(true))
-        boxes[0][4] = Spot(0, 4, King(true))
-        boxes[0][5] = Spot(0, 5, Bishop(true))
-        boxes[0][6] = Spot(0, 6, Knight(true))
-        boxes[0][7] = Spot(0, 7, Rook(true))
+        self.boxes = []
+        self.boxes[0][0] = Spot(0, 0, Rook(true))
+        self.boxes[0][1] = Spot(0, 1, Knight(true))
+        self.boxes[0][2] = Spot(0, 2, Bishop(true))
+        self.boxes[0][3] = Spot(0, 3, Queen(true))
+        self.boxes[0][4] = Spot(0, 4, King(true))
+        self.boxes[0][5] = Spot(0, 5, Bishop(true))
+        self.boxes[0][6] = Spot(0, 6, Knight(true))
+        self.boxes[0][7] = Spot(0, 7, Rook(true))
         # Pawns
         for i in range(8):
-            boxes[1][i] = Spot(1, i, Pawn(true))
+            self.boxes[1][i] = Spot(1, i, Pawn(true))
   
         # initialize black pieces
-        boxes[7][0] = Spot(0, 0, Rook(true))
-        boxes[7][1] = Spot(0, 1, Knight(true))
-        boxes[7][2] = Spot(0, 2, Bishop(true))
-        boxes[7][3] = Spot(0, 3, Queen(true))
-        boxes[7][4] = Spot(0, 4, King(true))
-        boxes[7][5] = Spot(0, 5, Bishop(true))
-        boxes[7][6] = Spot(0, 6, Knight(true))
-        boxes[7][7] = Spot(0, 7, Rook(true))
+        self.boxes[7][0] = Spot(0, 0, Rook(true))
+        self.boxes[7][1] = Spot(0, 1, Knight(true))
+        self.boxes[7][2] = Spot(0, 2, Bishop(true))
+        self.boxes[7][3] = Spot(0, 3, Queen(true))
+        self.boxes[7][4] = Spot(0, 4, King(true))
+        self.boxes[7][5] = Spot(0, 5, Bishop(true))
+        self.boxes[7][6] = Spot(0, 6, Knight(true))
+        self.boxes[7][7] = Spot(0, 7, Rook(true))
         # Pawns
         for i in range(8):
-            boxes[6][i] = Spot(1, i, Pawn(false))
+            self.boxes[6][i] = Spot(1, i, Pawn(false))
   
         # initialize remaining boxes without any piece
         for i in range(2, 5, 1):
             for j in range(0, 7, 1):
-                boxes[i][j] = Spot(i, j, None);
+                self.boxes[i][j] = Spot(i, j, None);
     

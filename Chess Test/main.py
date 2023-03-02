@@ -3,9 +3,8 @@ import chess.svg
 
 board = chess.Board()
 
-usesvg = True
-
 def loadtoWeb(svg_data):
+    """ Loads the svg data to the webpage """
     file = open("display.html", "w")
     file.write(svg_data)
     file.close()
