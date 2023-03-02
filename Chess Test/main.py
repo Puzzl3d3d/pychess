@@ -1,6 +1,8 @@
 import chess
 import chess.svg
 
+import webbrowser, os
+
 board = chess.Board()
 
 def loadtoWeb(svg_data):
@@ -8,6 +10,8 @@ def loadtoWeb(svg_data):
     file = open("display.html", "w")
     file.write(svg_data)
     file.close()
+
+    webbrowser.open('file://' + os.path.realpath("display.html"))
 
 loadtoWeb(chess.svg.board(board))
 print(board)
